@@ -1,0 +1,23 @@
+# Core LangChain
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# Google Gemini (LLM)
+langchain-google-genai
+
+# HuggingFace embeddings
+langchain-huggingface
+sentence-transformers
+huggingface_hub
+
+# Vector Databases (choose what you use)
+pinecone
+langchain-pinecone
+
+# Document loaders
+pypdf
+
+# Utilities
+python-dotenv
