@@ -19,12 +19,13 @@ embedding_model = get_embedding_model()
 redundancy_filter = EmbeddingsRedundantFilter(embeddings=embedding_model)
 reorderer = LongContextReorder()
 cross_encoder = CrossEncoderReranker(
-    model=HuggingFaceCrossEncoder(model_name="cross-encoder/ms-marco-MiniLM-L-6-v2")
+    model=HuggingFaceCrossEncoder(model_name="cross-encoder/ms-marco-MiniLM-L-6-v2"),
+    top_n=10,
 )
 
 retriever = get_vectorStore().as_retriever(
-    searchType="mmr",
-    search_kwargs={"k": 10, "lambda_mult": 0.25, "filter": {"doc_id": "story1"}},
+    search_type="mmr",
+    search_kwargs={"k": 40, "lambda_mult": 0.25, "filter": {"doc_id": "story1"}},
 )
 
 pipeline = DocumentCompressorPipeline(
